@@ -1,0 +1,22 @@
+{
+  "validLoginData": {
+    "email": "karolina.sitnik@hl.co.uk",
+    "password": "testtest"
+  },
+  "inValidLoginData": {
+    "email": "wrong@email.com",
+    "password": "invalid"
+  },
+  "changeStatus": {
+    "newStatus": "test2"
+  },
+  "chat": {
+    "chatTitle": "Chat",
+    "chatUser": "TestUser",
+    "chatTime": "   2:32 PM"
+  },
+  "user": {
+    "name": "testaccount",
+    "status": "test2"
+  }
+}
