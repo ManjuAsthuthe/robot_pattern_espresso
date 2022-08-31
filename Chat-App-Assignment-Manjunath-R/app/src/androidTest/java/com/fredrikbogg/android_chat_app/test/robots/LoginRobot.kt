@@ -35,7 +35,6 @@ class LoginRobot: BaseRobot() {
      */
     fun clickLogin(){
         clickButton(R.id.loginButton)
-        sleep(6000)
         Log.d(AutomationVariables.LOG_TAG,"Clicked on login button in the login screen")
     }
 

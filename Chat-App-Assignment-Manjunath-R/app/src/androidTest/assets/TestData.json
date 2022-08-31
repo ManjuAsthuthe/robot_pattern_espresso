@@ -18,5 +18,9 @@
   "user": {
     "name": "testaccount",
     "status": "test2"
+  },
+  "snackBarError": {
+    "wrongEmail": "There is no user record corresponding to this identifier. The user may have been deleted.",
+    "wrongPassword": "The password is invalid or the user does not have a password."
   }
 }

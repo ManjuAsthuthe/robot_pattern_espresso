@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.Log
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.fredrikbogg.android_chat_app.test_data.TestDataVariables
 import com.fredrikbogg.android_chat_app.test_data.models.TestData
 import com.fredrikbogg.android_chat_app.ui.main.MainActivity
+import com.fredrikbogg.android_chat_app.util.EspressoIdlingResource
 import com.fredrikbogg.android_chat_app.utils.AutomationVariables
 import org.junit.AfterClass
 import org.junit.BeforeClass
@@ -42,18 +44,26 @@ open class BaseTest {
         @AfterClass
         @JvmStatic
         fun cleanUp(){
-            // To Do
+            //yet to be added
         }
 
         /**
-        * Setting the test data
-        * @param pass the json file name
-        * @return boolean value
-        **/
+         * Setting the test data
+         * @param pass the json file name
+         * @return boolean value
+         **/
         private fun setTestData(json: String): Boolean {
-             testData = TestDataVariables().getJsonData(json)
-             Log.d(AutomationVariables.LOG_TAG, "Test Data is set")
-             return true
+            testData = TestDataVariables().getJsonData(json)
+            Log.d(AutomationVariables.LOG_TAG, "Test Data is set")
+            return true
+        }
+
+        fun registerIdling(){
+            IdlingRegistry.getInstance().register(EspressoIdlingResource.countingIdlingResource)
+        }
+
+        fun unregisterIdling(){
+            IdlingRegistry.getInstance().unregister(EspressoIdlingResource.countingIdlingResource)
         }
     }
 }

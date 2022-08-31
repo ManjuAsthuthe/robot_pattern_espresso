@@ -44,7 +44,6 @@ class SettingsRobot: BaseRobot() {
         goToSettings()
         settingsScreenIsShown(resources)
         clickButton(R.id.logoutButton)
-        sleep(5000)
         Log.d(AutomationVariables.LOG_TAG,"Clicked on logout button in the settings screen")
     }
 

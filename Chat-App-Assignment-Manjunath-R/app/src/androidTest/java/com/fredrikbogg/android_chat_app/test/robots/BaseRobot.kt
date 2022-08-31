@@ -89,13 +89,28 @@ open class BaseRobot {
      * @param - snack bar text to be verified
      */
     fun snackBarIsShown(text: String){
-        try{
-            onView(withId(R.id.snackbar_text))
-                .check(matches(withText(text)))
-            Log.d(AutomationVariables.LOG_TAG,"Snack bar text($text) validated")
-        }catch (e: Exception){
-            Log.d(AutomationVariables.LOG_TAG, "Exception when checking snack bar text($text) -> ${e.printStackTrace()}")
-        }
+        onView(withId(R.id.snackbar_text))
+            .check(matches(withText(text)))
+        Log.d(AutomationVariables.LOG_TAG,"Snack bar text($text) validated")
+    }
+
+    /**
+     * Checks whether snack bar is shown with given text
+     * @param - snack bar text to be verified
+     */
+    fun snackBarForWrongEmailOrPwdIsShown(text: String){
+        /*
+        * Even after adding Espresso idling resource, test is failing here because
+        * Espresso idling resource by default waits for 5 sec
+        * and by that time Snackbar would be disappeared and hence idling resource is not helping here
+        *
+        * Other way is to use Condition Watcher -> https://github.com/AzimoLabs/ConditionWatcher
+        * which polls for every 250 ms to check the condition but now due to no time
+        * I have adding static sleep of 1 sec only for this particular function
+        */
+        sleep(1000)
+        isTextDisplayed(text)
+        Log.d(AutomationVariables.LOG_TAG,"Snack bar text($text) validated")
     }
 
     /**

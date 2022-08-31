@@ -5,6 +5,7 @@ import com.fredrikbogg.android_chat_app.data.model.Login
 import com.fredrikbogg.android_chat_app.data.db.remote.FirebaseAuthSource
 import com.fredrikbogg.android_chat_app.data.db.remote.FirebaseAuthStateObserver
 import com.fredrikbogg.android_chat_app.data.Result
+import com.fredrikbogg.android_chat_app.util.EspressoIdlingResource
 import com.google.firebase.auth.FirebaseUser
 
 class AuthRepository{
@@ -16,7 +17,10 @@ class AuthRepository{
 
     fun loginUser(login: Login, b: ((Result<FirebaseUser>) -> Unit)) {
         b.invoke(Result.Loading)
+        //Espresso idling resource
+        EspressoIdlingResource.increment()
         firebaseAuthService.loginWithEmailAndPassword(login).addOnSuccessListener {
+            EspressoIdlingResource.decrement()
             b.invoke(Result.Success(it.user))
         }.addOnFailureListener {
             b.invoke(Result.Error(msg = it.message))
