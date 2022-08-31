@@ -117,6 +117,18 @@ fun <T : Any?> MutableLiveData<T>.default(initialValue: T) = apply { setValue(in
     )
 )
 
+## Made change in the AuthRepository class to implement espresso idling resource
+## without idling resource test will fail on clicking login 
+## because in the background thread is fetching data from firebase db
+//Espresso idling resource
+EspressoIdlingResource.increment()
+    firebaseAuthService.loginWithEmailAndPassword(login).addOnSuccessListener {
+    EspressoIdlingResource.decrement()
+
+added EspressoIdlingResource singleton class in the path of app/src/main/java/com/fredrikbogg/android_chat_app/util/EspressoIdlingResource.kt
+
+
+
 ## Espresso Automation -
 I have used [Robot Patterns] with kotlin features like [scope functions(apply) and Kotlin extensions] to build the UI test.
 I have have built a small framework inside androidTest directory and structured the framework to use testData from json file using Moshi library.
@@ -152,7 +164,7 @@ private fun showEditStatusDialog() {
 ## Automation Report -
 Automated 9 tests covering all the 4 use cases aforementioned in the email.
 Please find the attached junit report of all 9 tests including screenshot of command line run.
-[Report path  - Chat-App-Android-Demo-Project-master/app/build/reports/androidTests/connected/index.html]
+[Report path  - Chat-App-Assignment-Manjunath-R/app/build/reports/androidTests/connected/index.html]
 
 ##How to run automated testcases -
 go to the project folder and run below command
