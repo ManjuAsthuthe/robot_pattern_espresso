@@ -99,7 +99,7 @@ open class BaseRobot {
      * @param - snack bar text to be verified
      */
     fun snackBarForWrongEmailOrPwdIsShown(text: String){
-        /*
+        /**
         * Even after adding Espresso idling resource, test is failing here because
         * Espresso idling resource by default waits for 5 sec
         * and by that time Snackbar would be disappeared and hence idling resource is not helping here

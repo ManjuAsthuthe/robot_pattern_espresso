@@ -20,13 +20,14 @@ class SettingsTest: BaseTest() {
             } verifyThat {
                 loginScreenIsShown(resources)
             }
-
+            registerIdling()
             withLoginRobot {
                 login(testData!!.validLoginData.email, testData!!.validLoginData.password)
                 isLoggedIn = true
             } verifyThat {
                 chatsScreenIsShown(resources)
             }
+            unregisterIdling()
         }
     }
 
