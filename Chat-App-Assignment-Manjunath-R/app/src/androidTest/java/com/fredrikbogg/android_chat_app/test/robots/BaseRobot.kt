@@ -105,8 +105,8 @@ open class BaseRobot {
         * and by that time Snackbar would be disappeared and hence idling resource is not helping here
         *
         * Other way is to use Condition Watcher -> https://github.com/AzimoLabs/ConditionWatcher
-        * which polls for every 250 ms to check the condition but now due to no time
-        * I have adding static sleep of 1 sec only for this particular function
+        * which polls for every 250 ms to check the condition but now due to less time
+        * I am adding static sleep of 1 sec only for this particular function
         */
         sleep(1000)
         isTextDisplayed(text)
