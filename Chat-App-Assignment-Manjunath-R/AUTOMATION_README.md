@@ -145,9 +145,12 @@ BottomNavigationItemView{id=2131362031, res-name=navigation_chats, desc=Chats, v
 
 [Change status alert dialog] - I was unable to identify and enter value in the alert dialog.
 From the view hierarchy i got the resource id of the alert dialog but was not able to identify via Espresso using resource Id , not sure what is the issue here. I think default android provided alert dialog are not getting detected by Espresso using resource id.
+
 View hierarchy ->
 [EditText inside alert dialog has no resource id] ->
 EditText{id=-1, visibility=VISIBLE, width=936, height=124, has-focus=false, has-focusable=true, has-window-focus=true, is-clickable=true, is-enabled=true, is-focused=false, is-focusable=true, is-layout-requested=false, is-selected=false, layout-params=android.widget.FrameLayout$LayoutParams@5a8906a, tag=null, root-is-layout-requested=false, has-input-connection=true, editor-info=[inputType=0x20001 imeOptions=0x40000006 privateImeOptions=null actionLabel=null actionId=0 initialSelStart=0 initialSelEnd=0 initialCapsMode=0x0 hintText= new status label=null packageName=null autofillId=null fieldId=0 fieldName=null extras=null hintLocales=null contentMimeTypes=null ], x=0.0, y=0.0, text=, hint= new status, input-type=131073, ime-target=false, has-links=false}
+
+View hierarchy ->
 [I was not able to click with below alert dialog resource id]
 AlertDialogLayout{id=2131362056, res-name=parentPanel, visibility=VISIBLE, width=936, height=412, has-focus=false, has-focusable=true, has-window-focus=true, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params=android.widget.FrameLayout$LayoutParams@369c50a, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=0.0, child-count=4}
 
